@@ -6,7 +6,7 @@ The following components are currently exported by `crates/ui`. Their source has
 
 | Component | Current API | Behavior |
 |---|---|---|
-| MoonButton | `label: String`, optional `disabled: bool` | Native button, default type button, disabled state |
+| MoonButton | `label: String`, optional `disabled: bool`, optional `onclick: EventHandler<MouseEvent>` | Native button, default type button, disabled state, optional click callback |
 | MoonCard | `title: String, description: String` | Section surface with heading and description |
 | MoonBadge | `label: String` | Neutral status text, not color-dependent |
 | MoonSeparator | no props | Native horizontal rule |
