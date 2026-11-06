@@ -6,6 +6,9 @@ Provide one coherent source of truth for product identity, workspace boundaries,
 Read README.md, docs/ARCHITECTURE.md, docs/CONTRACTS.md, docs/SECURITY.md, docs/TESTING.md, docs/DEPLOYMENT.md, design docs, and both supplied master prompt documents.
 ## Dependencies
 None.
+## Scope
+Documentation and planning only; preserve all existing source implementation and user work.
+
 ## Delivered scope
 docs/PRODUCT-BLUEPRINT.md, docs/MONOREPO.md, docs/DEPENDENCY_RULES.md, and .plan master/index/graph/strategy/progress/milestones.
 ## Acceptance
