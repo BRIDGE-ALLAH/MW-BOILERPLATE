@@ -142,3 +142,30 @@ footer { padding: 22px 32px; border-top: 1px solid var(--border); color: var(--m
 @media (prefers-reduced-motion: reduce) {
   .moon-switch input, .moon-switch input::before { transition: none; }
 }
+
+
+/* Native modal dialog: browser-managed modality and focus behavior. */
+.moon-dialog {
+  width: min( min( calc(100% - 2rem), 560px), 100%);
+  max-width: 560px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
+}
+.moon-dialog::backdrop {
+  background: rgba(8, 12, 20, .62);
+  backdrop-filter: blur(2px);
+}
+.moon-dialog h2 { margin: 0 0 12px; }
+.moon-dialog p { color: var(--muted); }
+.moon-button--secondary {
+  border: 1px solid var(--border);
+  background: var(--surface-muted);
+  color: var(--text);
+}
+@media (prefers-reduced-motion: reduce) {
+  .moon-dialog::backdrop { backdrop-filter: none; }
+}
