@@ -107,4 +107,38 @@ footer { padding: 22px 32px; border-top: 1px solid var(--border); color: var(--m
 }
 
 .moon-input select, select.moon-input { cursor: pointer; }
-.moon-switch input { width: 34px; height: 20px; }
+.moon-switch input {
+  appearance: none;
+  position: relative;
+  width: 38px;
+  height: 22px;
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-muted);
+  cursor: pointer;
+  transition: background-color .16s ease, border-color .16s ease;
+}
+.moon-switch input::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: transform .16s ease, background-color .16s ease;
+}
+.moon-switch input:checked {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.moon-switch input:checked::before {
+  transform: translateX(16px);
+  background: var(--accent-contrast);
+}
+.moon-switch input:disabled { cursor: not-allowed; opacity: .55; }
+@media (prefers-reduced-motion: reduce) {
+  .moon-switch input, .moon-switch input::before { transition: none; }
+}
