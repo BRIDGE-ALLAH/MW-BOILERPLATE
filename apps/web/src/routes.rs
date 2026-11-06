@@ -55,7 +55,7 @@ fn ThemeToggle() -> Element {
         button {
             class: "theme-toggle",
             aria_label: "Toggle color theme",
-            aria_pressed: "{dark}",
+            aria_pressed: dark(),
             onclick: move |_| {
                 let next = !dark();
                 dark.set(next);
