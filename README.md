@@ -147,6 +147,7 @@ Moonbase currently owns the frontend shell, reusable primitives, foundational ty
 - [Security](docs/SECURITY.md)
 - [Design System](design/DESIGN_SYSTEM.md)
 - [Components](design/COMPONENTS.md)
+- [Accessibility Contract](design/ACCESSIBILITY.md)
 - [Autonomous Execution Plan](.plan/README.md)
 
 ## Roadmap
