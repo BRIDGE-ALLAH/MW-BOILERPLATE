@@ -13,7 +13,7 @@
 - M02-001 design contract is COMPLETED: component API/accessibility contract, semantic token roadmap, and accessibility guide are documented.
 - M00-002, M00-003, and M01-001 are BLOCKED by their M00-001 dependency.
 - M02-002 and M02-003 are IN_PROGRESS: MoonButton callback/disabled behavior, Badge, Separator, Spinner, VisuallyHidden, Label, Input, Textarea, Checkbox, Switch, Select, semantic CSS including danger token, and controlled showcase examples are committed. Four unit tests cover helper wiring for help/error description IDs; test execution and component render/browser verification remain pending.
-- M02-005 remains READY as an independent UI task, but its native-dialog focus/keyboard strategy still requires a browser validation lane.
+- M02-005 is IN_PROGRESS: the showcase now uses the native `<dialog>` element with `showModal()`/`close()`, accessible name/description, and browser-managed modal semantics. Browser focus, keyboard, Escape, backdrop, and focus-restoration checks remain NOT RUN.
 - M01-002/003, M02-004/006, and all M03/M04 tasks are BLOCKED until their declared dependencies are complete. The task index and task files now reflect this dependency state.
 - No implementation task is marked COMPLETED because no Rust/browser/deployment test gate has been run in this environment.
 
@@ -26,7 +26,7 @@
 - Dockerfile and Compose exist under deploy/.
 - CI and scheduled cargo-audit workflows exist.
 - Browser E2E tests are not present in docs/TESTING.md.
-- Moon UI source exports MoonButton, MoonCard, MoonBadge, MoonSeparator, MoonSpinner, MoonVisuallyHidden, MoonLabel, MoonInput, MoonTextarea, MoonCheckbox, MoonSelectOption, MoonSelect, and MoonSwitch; source compile is unverified.
+- Moon UI source exports MoonButton, MoonCard, MoonBadge, MoonSeparator, MoonSpinner, MoonVisuallyHidden, MoonLabel, MoonInput, MoonTextarea, MoonCheckbox, MoonSelectOption, MoonSelect, and MoonSwitch; the web showcase also contains a native dialog example. Source compile remains unverified.
 - No API client, config crate, backend, database, or authentication service is present.
 - docs/MONOREPO.md, docs/DEPENDENCY_RULES.md, docs/PRODUCT-BLUEPRINT.md and .plan are now committed.
 
