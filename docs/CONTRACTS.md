@@ -58,6 +58,8 @@ The current exported source APIs are:
 - `MoonLabel { for_id, label, required? }`: reusable associated label.
 - `MoonInput { id, label, value, required?, disabled?, invalid?, help_text?, error_text?, oninput? }`: controlled text input.
 - `MoonTextarea { id, label, value, rows?, required?, disabled?, invalid?, help_text?, error_text?, oninput? }`: controlled textarea.
+- `MoonSwitch { id, label, checked?, disabled?, onchange? }`: native checkbox exposed with switch semantics.
+- `MoonSelect { id, label, value, options, placeholder?, required?, disabled?, onchange? }`: controlled native select. Options use public `MoonSelectOption { label, value }`.
 - `MoonCheckbox { id, label, checked?, required?, disabled?, onchange? }`: native checkbox.
 
 These source declarations have not yet been compiled in this environment. The UI crate does not provide a Select, Switch, Alert, Toast, Tooltip, Dialog, or Tabs component. See [Moon UI Components](../design/COMPONENTS.md) for examples and limitations.
