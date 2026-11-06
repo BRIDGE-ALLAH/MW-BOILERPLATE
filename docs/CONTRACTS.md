@@ -62,7 +62,7 @@ The current exported source APIs are:
 - `MoonSelect { id, label, value, options, placeholder?, required?, disabled?, onchange? }`: controlled native select. Options use public `MoonSelectOption { label, value }`.
 - `MoonCheckbox { id, label, checked?, required?, disabled?, onchange? }`: native checkbox.
 
-These source declarations have not yet been compiled in this environment. The UI crate does not provide a Select, Switch, Alert, Toast, Tooltip, Dialog, or Tabs component. See [Moon UI Components](../design/COMPONENTS.md) for examples and limitations.
+These source declarations have not yet been compiled in this environment. The UI crate does not provide Alert, Toast, Tooltip, Dialog, or Tabs components. See [Moon UI Components](../design/COMPONENTS.md) for examples and limitations.
 
 ## Compatibility policy
 
