@@ -56,11 +56,11 @@ MoonSelect {
 
 ## Known limitations
 
-- MoonButton has no variant, size, loading state, or click callback prop yet.
+- MoonButton has no variant, size, or loading state; it supports disabled state and an optional click callback.
 - MoonInput is currently text-only; specialized email/number/password semantics are not exposed.
 - MoonTextarea and MoonInput rely on the caller to own validation and state.
 - MoonCheckbox exposes a native change event but no custom form-state abstraction.
-- Select, Switch, Alert, Toast, Tooltip, Dialog, Tabs, and layout primitives remain deferred.
+- Alert, Toast, Tooltip, Dialog, Tabs, and advanced layout primitives remain deferred.
 - Component render tests and browser E2E are not configured or executed yet.
 
 ## Implementation requirements
