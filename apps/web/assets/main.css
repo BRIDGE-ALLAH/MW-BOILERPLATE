@@ -105,3 +105,6 @@ footer { padding: 22px 32px; border-top: 1px solid var(--border); color: var(--m
 @media (prefers-reduced-motion: reduce) {
   .moon-spinner__visual { animation: none; border-top-color: var(--accent); }
 }
+
+.moon-input select, select.moon-input { cursor: pointer; }
+.moon-switch input { width: 34px; height: 20px; }
