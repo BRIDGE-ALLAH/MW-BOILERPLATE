@@ -74,7 +74,7 @@ fn Home() -> Element {
         h1 { "A dependable foundation for Rust applications." }
         p { class: "lead", "A compact, contract-first Dioxus workspace designed to be reused by independent products without coupling their business logic or visual identity." }
         div { class: "actions",
-            MoonButton { label: "Explore components" }
+            Link { to: Route::Components {}, class: "moon-button", "Explore components" }
             Link { to: Route::About {}, class: "text-link", "Read architecture →" }
         }
         div { class: "card-grid",
