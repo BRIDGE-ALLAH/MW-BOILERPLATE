@@ -131,12 +131,7 @@ pub fn MoonTextarea(
     error_text: Option<String>,
     oninput: Option<EventHandler<FormEvent>>,
 ) -> Element {
-    let described_by = match (&help_text, &error_text) {
-        (Some(_), Some(_)) => Some(format!("{id}-help {id}-error")),
-        (Some(_), None) => Some(format!("{id}-help")),
-        (None, Some(_)) => Some(format!("{id}-error")),
-        (None, None) => None,
-    };
+    let described_by = described_by(&id, help_text.is_some(), error_text.is_some());
 
     rsx! {
         div { class: "moon-field",
@@ -154,7 +149,7 @@ pub fn MoonTextarea(
                 aria_invalid: invalid,
                 aria_describedby: described_by,
                 oninput: move |event| {
-                    if let Some(handler) = oninput {
+                    if let Some(handler) = &oninput {
                         handler.call(event);
                     }
                 }
