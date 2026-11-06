@@ -14,7 +14,7 @@ The goal is a compact foundation that teams and AI coding agents can extend safe
 - Cargo task aliases, GitHub Actions validation/security workflows, Docker and Compose deployment files.
 
 **Partial, planned, or not yet verified**
-- Moon UI source now includes primitives and native form controls; compile/render verification is pending. Alert, Toast, Tooltip, Dialog, Tabs, and advanced layout components remain planned.
+- Moon UI source now includes primitives and native form controls; compile/render verification is pending. Alert, Toast, Tooltip, a reusable MoonDialog component, Tabs, and advanced layout components remain planned. The web showcase demonstrates the browser-native `<dialog>` element; browser accessibility verification is pending.
 - There is no API client, backend, database, authentication service, or product-specific business logic.
 - Browser E2E tests are not configured yet.
 - Docker image build/runtime and production bundle output path have not been validated in this authoring environment.
