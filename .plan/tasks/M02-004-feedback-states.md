@@ -1,5 +1,5 @@
 # M02-004 — Implement Feedback and Application States
-**Priority:** P2 | **Agent:** FRONTEND_AGENT | **Status:** READY | **Execution:** PARALLEL
+**Priority:** P2 | **Agent:** FRONTEND_AGENT | **Status:** BLOCKED | **Execution:** PARALLEL
 ## Objective
 Standardize Alert/Badge/Toast only when justified and app-level loading, empty, error, and not-found presentation.
 ## Context
