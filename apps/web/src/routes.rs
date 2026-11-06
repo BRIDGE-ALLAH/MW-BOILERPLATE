@@ -129,11 +129,17 @@ fn Components() -> Element {
 
 #[component]
 fn ButtonPage() -> Element {
+    let mut clicks = use_signal(|| 0_u32);
     rsx! {
         h1 { "Button" }
-        p { class: "lead", "A minimal action component with a text label." }
-        MoonButton { label: "Primary action" }
-        pre { "MoonButton { label: \"Save changes\" }" }
+        p { class: "lead", "A native action component with disabled state and an optional click callback." }
+        MoonButton {
+            label: "Primary action",
+            onclick: move |_| clicks += 1
+        }
+        p { "Activated {clicks} times." }
+        MoonButton { label: "Disabled example", disabled: true }
+        pre { "MoonButton { label: \"Save changes\", onclick: move |_| save() }" }
     }
 }
 
