@@ -1,11 +1,6 @@
 [workspace]
 resolver = "2"
-members = [
-  "apps/web",
-  "crates/core",
-  "crates/contracts",
-  "crates/ui",
-]
+members = ["apps/web", "crates/core", "crates/contracts", "crates/ui", "xtask"]
 
 [workspace.package]
 version = "0.1.0"
@@ -19,7 +14,6 @@ dioxus = { version = "0.7.10", features = ["router"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 thiserror = "2"
-tracing = "0.1"
 mw-core = { path = "crates/core" }
 mw-contracts = { path = "crates/contracts" }
 mw-ui = { path = "crates/ui" }
