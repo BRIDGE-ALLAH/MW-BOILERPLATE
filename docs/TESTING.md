@@ -19,7 +19,7 @@ The Cargo aliases are documented in [Development](DEVELOPMENT.md). `cargo audit`
 
 - `mw-core`: identifier validation and preservation unit tests.
 - `mw-contracts`: pagination default and error serialization unit tests.
-- `mw-ui`: no component render/browser test harness is currently configured.
+- `mw-ui`: four unit tests cover the helper that associates optional help/error message IDs; component render/browser tests are not configured.
 - `mw-web`: no browser E2E suite is currently configured.
 
 A successful compile is not evidence of browser-level behavior. Do not claim route, theme, form, keyboard, responsive, or accessibility behavior passed without browser execution.
