@@ -32,7 +32,7 @@ fn SiteLayout() -> Element {
                 ThemeToggle {}
             }
             div { class: "body",
-                aside { class: "sidebar",
+                nav { class: "sidebar", aria_label: "Primary navigation",
                     Link { to: Route::Home {}, "Overview" }
                     Link { to: Route::About {}, "About" }
                     Link { to: Route::Components {}, "Components" }
@@ -54,9 +54,12 @@ fn ThemeToggle() -> Element {
     rsx! {
         button {
             class: "theme-toggle",
+            aria_label: "Toggle color theme",
+            aria_pressed: "{dark}",
             onclick: move |_| {
-                dark.set(!dark());
-                document::eval(if dark() {
+                let next = !dark();
+                dark.set(next);
+                document::eval(if next {
                     "document.documentElement.dataset.theme = 'dark'"
                 } else {
                     "document.documentElement.dataset.theme = 'light'"
