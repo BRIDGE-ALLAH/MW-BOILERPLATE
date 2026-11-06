@@ -60,7 +60,7 @@ MoonSelect {
 - MoonInput is currently text-only; specialized email/number/password semantics are not exposed.
 - MoonTextarea and MoonInput rely on the caller to own validation and state.
 - MoonCheckbox exposes a native change event but no custom form-state abstraction.
-- Alert, Toast, Tooltip, Dialog, Tabs, and advanced layout primitives remain deferred.
+- Alert, Toast, Tooltip, a reusable MoonDialog component, Tabs, and advanced layout primitives remain deferred; the web route demonstrates a native `<dialog>` element.
 - Component render tests and browser E2E are not configured or executed yet.
 
 ## Implementation requirements
