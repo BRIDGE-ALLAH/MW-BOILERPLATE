@@ -203,8 +203,32 @@ fn InputPage() -> Element {
 fn DialogPage() -> Element {
     rsx! {
         h1 { "Dialog" }
-        p { class: "lead", "Dialog is intentionally deferred until keyboard focus management and accessibility behavior can be implemented and tested." }
-        MoonCard { title: "Not implemented yet", description: "This route documents the planned component without presenting a non-functional mock." }
+        p { class: "lead", "A native modal dialog. The browser provides modal focus handling, Escape-to-close behavior, and focus restoration when the dialog is closed." }
+        button {
+            class: "moon-button",
+            onclick: move |_| {
+                document::eval("document.getElementById('moon-demo-dialog').showModal()");
+            },
+            "Open dialog"
+        }
+        dialog {
+            id: "moon-demo-dialog",
+            class: "moon-dialog",
+            aria_labelledby: "moon-demo-dialog-title",
+            aria_describedby: "moon-demo-dialog-description",
+            h2 { id: "moon-demo-dialog-title", "Confirm example action" }
+            p { id: "moon-demo-dialog-description", "This is a native modal dialog. Press Escape or use the close button to dismiss it." }
+            div { class: "actions",
+                button {
+                    class: "moon-button moon-button--secondary",
+                    onclick: move |_| {
+                        document::eval("document.getElementById('moon-demo-dialog').close()");
+                    },
+                    "Close dialog"
+                }
+            }
+        }
+        p { class: "moon-field__help", "The dialog uses the platform's native <dialog> element rather than a simulated overlay." }
     }
 }
 
