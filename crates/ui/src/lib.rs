@@ -150,9 +150,10 @@ pub fn MoonTextarea(
 
     rsx! {
         div { class: "moon-field",
-            label { class: "moon-field__label", r#for: "{id}",
-                "{label}"
-                if required { span { class: "moon-field__required", " (required)" } }
+            MoonLabel {
+                for_id: id.clone(),
+                label: label.clone(),
+                required
             }
             textarea {
                 id: "{id}",
