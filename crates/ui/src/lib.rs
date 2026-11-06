@@ -74,6 +74,20 @@ pub fn MoonVisuallyHidden(children: Element) -> Element {
 }
 
 #[component]
+pub fn MoonLabel(
+    for_id: String,
+    label: String,
+    #[props(default)] required: bool,
+) -> Element {
+    rsx! {
+        label { class: "moon-field__label", r#for: "{for_id}",
+            "{label}"
+            if required { span { class: "moon-field__required", " (required)" } }
+        }
+    }
+}
+
+#[component]
 pub fn MoonInput(
     id: String,
     label: String,
@@ -89,9 +103,10 @@ pub fn MoonInput(
 
     rsx! {
         div { class: "moon-field",
-            label { class: "moon-field__label", r#for: "{id}",
-                "{label}"
-                if required { span { class: "moon-field__required", " (required)" } }
+            MoonLabel {
+                for_id: id.clone(),
+                label: label.clone(),
+                required
             }
             input {
                 id: "{id}",
