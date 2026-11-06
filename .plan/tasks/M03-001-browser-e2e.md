@@ -1,5 +1,5 @@
 # M03-001 — Add Browser E2E and Accessibility Checks
-**Priority:** P3 | **Agent:** TESTING_AGENT | **Status:** READY | **Execution:** SEQUENTIAL
+**Priority:** P3 | **Agent:** TESTING_AGENT | **Status:** BLOCKED | **Execution:** SEQUENTIAL
 ## Objective
 Add a maintained browser test harness compatible with the generated Dioxus web app.
 ## Context
