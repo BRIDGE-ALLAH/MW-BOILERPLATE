@@ -55,7 +55,7 @@ fn ThemeToggle() -> Element {
         button {
             class: "theme-toggle",
             onclick: move |_| {
-                dark.toggle();
+                dark.set(!dark());
                 document::eval(if dark() {
                     "document.documentElement.dataset.theme = 'dark'"
                 } else {
