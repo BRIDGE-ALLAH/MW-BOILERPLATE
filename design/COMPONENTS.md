@@ -19,7 +19,7 @@ The following components are currently exported by `crates/ui`. Their source has
 | MoonSelect | `id, label, value, options`, optional `placeholder, required, disabled, onchange` | Controlled native select with keyboard behavior and associated label |
 | MoonCheckbox | `id, label`, optional `checked, required, disabled, onchange` | Native checkbox nested in its associated label |
 
-The component showcase uses MoonBadge, MoonSeparator, MoonSpinner, MoonInput, MoonTextarea, MoonCheckbox, MoonSwitch, and MoonSelect. MoonLabel is also used internally by MoonInput and MoonTextarea. MoonVisuallyHidden is exported for reuse but does not yet have a dedicated showcase example.
+The component showcase uses MoonBadge, MoonSeparator, MoonSpinner, MoonInput, MoonTextarea, MoonCheckbox, MoonSwitch, and MoonSelect. MoonLabel is also used internally by MoonInput, MoonTextarea, and MoonSelect. The select options are represented by the public MoonSelectOption data type. MoonVisuallyHidden is exported for reuse but does not yet have a dedicated showcase example.
 
 ## Usage examples
 
