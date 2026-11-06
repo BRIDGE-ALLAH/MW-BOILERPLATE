@@ -1,5 +1,5 @@
 # M04-001 — Evaluate Consumer-Backed Future Targets
-**Priority:** P4 | **Agent:** ARCHITECT_AGENT | **Status:** READY | **Execution:** SEQUENTIAL
+**Priority:** P4 | **Agent:** ARCHITECT_AGENT | **Status:** BLOCKED | **Execution:** SEQUENTIAL
 ## Objective
 Decide whether desktop/mobile, SSR/hydration, theme/token/icon crates, or shared test utilities are justified by actual consumer needs.
 ## Context
