@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use mw_ui::{MoonBadge, MoonButton, MoonCard, MoonCheckbox, MoonInput, MoonSeparator, MoonSpinner, MoonTextarea};
+use mw_ui::{MoonBadge, MoonButton, MoonCard, MoonCheckbox, MoonInput, MoonSelect, MoonSelectOption, MoonSeparator, MoonSpinner, MoonSwitch, MoonTextarea};
 
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
@@ -148,6 +148,8 @@ fn InputPage() -> Element {
     let mut value = use_signal(String::new);
     let mut notes = use_signal(String::new);
     let mut updates_enabled = use_signal(|| false);
+    let mut selected_plan = use_signal(String::new);
+    let mut beta_enabled = use_signal(|| false);
     rsx! {
         h1 { "Form controls" }
         p { class: "lead", "Reusable native controls with explicit labels, controlled values, and optional validation messaging." }
@@ -175,6 +177,25 @@ fn InputPage() -> Element {
             onchange: move |event| updates_enabled.set(event.checked())
         }
         p { "Updates enabled: {updates_enabled}" }
+        MoonSelect {
+            id: "demo-plan",
+            label: "Example plan",
+            value: "{selected_plan}",
+            placeholder: Some("Choose a plan".to_string()),
+            options: vec![
+                MoonSelectOption { label: "Starter".to_string(), value: "starter".to_string() },
+                MoonSelectOption { label: "Professional".to_string(), value: "professional".to_string() },
+            ],
+            onchange: move |event| selected_plan.set(event.value())
+        }
+        p { "Selected plan: {selected_plan}" }
+        MoonSwitch {
+            id: "demo-beta",
+            label: "Enable beta example",
+            checked: beta_enabled(),
+            onchange: move |event| beta_enabled.set(event.checked())
+        }
+        p { "Beta enabled: {beta_enabled}" }
     }
 }
 
