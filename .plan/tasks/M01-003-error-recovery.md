@@ -1,5 +1,5 @@
 # M01-003 — Standardize Error Mapping and Recovery
-**Priority:** P1 | **Agent:** INTEGRATION_AGENT | **Status:** READY | **Execution:** SEQUENTIAL
+**Priority:** P1 | **Agent:** INTEGRATION_AGENT | **Status:** BLOCKED | **Execution:** SEQUENTIAL
 ## Objective
 Make transport and application errors explicit and render safe, recoverable user feedback.
 ## Context
