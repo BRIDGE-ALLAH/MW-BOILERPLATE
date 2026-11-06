@@ -8,9 +8,9 @@
 ## Current state
 
 - 18 microtasks defined across 5 milestones.
-- M00-004 documentation/contract reconciliation: COMPLETED_WITH_LIMITATIONS (docs and plan authored; no Rust or browser tests are claimed).
+- M00-004 documentation reconciliation: COMPLETED_WITH_LIMITATIONS. Product blueprint, monorepo/dependency guides, master plan, task index, graph, execution strategy, progress, five milestones, 18 task specifications, and README integration are committed.
 - 17 tasks remain READY pending execution and dependency gates.
-- No task is marked COMPLETED because no implementation test gate has been run in this environment.
+- No implementation task is marked COMPLETED because no Rust/browser/deployment test gate has been run in this environment.
 
 ## Verified repository facts
 
@@ -21,7 +21,16 @@
 - Dockerfile and Compose exist under deploy/.
 - CI and scheduled cargo-audit workflows exist.
 - Browser E2E tests are not present in docs/TESTING.md.
-- docs/MONOREPO.md, docs/DEPENDENCY_RULES.md and .plan did not exist at audit time.
+- Existing reusable Moon UI exports are MoonButton and MoonCard only.
+- No API client, config crate, backend, database, or authentication service is present.
+- docs/MONOREPO.md, docs/DEPENDENCY_RULES.md, docs/PRODUCT-BLUEPRINT.md and .plan are now committed.
+
+## Documentation validation
+
+- README now covers product purpose, current status, workspace, prerequisites, setup, configuration, commands, testing, deployment, integration boundaries, troubleshooting, docs, roadmap, and autonomous execution.
+- Architecture, contracts, security, testing, and component docs were reconciled against inspected source files.
+- Relative Markdown references were manually cross-checked against repository paths referenced by the edited docs and plan.
+- Automated link-check tooling is not configured; no automated link-check result is claimed.
 
 ## Validation evidence and limitations
 
