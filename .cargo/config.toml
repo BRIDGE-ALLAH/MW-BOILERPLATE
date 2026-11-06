@@ -1,0 +1,6 @@
+[alias]
+dev = "run --package mw-xtask -- dev"
+build-web = "run --package mw-xtask -- build"
+check-all = "run --package mw-xtask -- check"
+test-all = "run --package mw-xtask -- test"
+lint = "run --package mw-xtask -- lint"
