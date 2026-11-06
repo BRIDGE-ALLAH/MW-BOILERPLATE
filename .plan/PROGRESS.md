@@ -26,7 +26,7 @@
 - Dockerfile and Compose exist under deploy/.
 - CI and scheduled cargo-audit workflows exist.
 - Browser E2E tests are not present in docs/TESTING.md.
-- Moon UI source exports MoonButton, MoonCard, MoonBadge, MoonSeparator, MoonSpinner, MoonVisuallyHidden, MoonInput, MoonTextarea, and MoonCheckbox; source compile is unverified.
+- Moon UI source exports MoonButton, MoonCard, MoonBadge, MoonSeparator, MoonSpinner, MoonVisuallyHidden, MoonLabel, MoonInput, MoonTextarea, MoonCheckbox, MoonSelectOption, MoonSelect, and MoonSwitch; source compile is unverified.
 - No API client, config crate, backend, database, or authentication service is present.
 - docs/MONOREPO.md, docs/DEPENDENCY_RULES.md, docs/PRODUCT-BLUEPRINT.md and .plan are now committed.
 
