@@ -63,3 +63,43 @@ footer { padding: 22px 32px; border-top: 1px solid var(--border); color: var(--m
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Moon UI primitives */
+.moon-button:disabled { cursor: not-allowed; opacity: .58; }
+.moon-badge {
+  display: inline-flex; align-items: center; width: fit-content;
+  padding: 4px 10px; border: 1px solid var(--border); border-radius: 999px;
+  background: var(--surface-muted); color: var(--text); font-size: .8rem; font-weight: 650;
+}
+.moon-separator { width: 100%; margin: 24px 0; border: 0; border-top: 1px solid var(--border); }
+.moon-spinner { display: inline-flex; align-items: center; gap: 10px; color: var(--muted); }
+.moon-spinner__visual {
+  width: 18px; height: 18px; border: 2px solid var(--border);
+  border-top-color: var(--accent); border-radius: 50%; animation: moon-spin .8s linear infinite;
+}
+.moon-visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.moon-field { display: grid; gap: 7px; width: min(100%, 480px); margin: 18px 0; }
+.moon-field__label { font-weight: 650; }
+.moon-field__required { color: var(--muted); font-size: .86em; font-weight: 400; }
+.moon-input {
+  width: 100%; min-height: 44px; padding: 11px 13px; border: 1px solid var(--border);
+  border-radius: 9px; background: var(--surface); color: var(--text); font: inherit;
+}
+.moon-input:focus-visible, .moon-checkbox input:focus-visible, .moon-button:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 2px;
+}
+.moon-input:disabled { cursor: not-allowed; opacity: .6; }
+.moon-input--invalid { border-color: #c43d4b; }
+.moon-field__help, .moon-field__error { margin: 0; font-size: .9rem; }
+.moon-field__help { color: var(--muted); }
+.moon-field__error { color: #c43d4b; }
+.moon-checkbox { display: inline-flex; align-items: center; gap: 10px; margin: 12px 0; cursor: pointer; }
+.moon-checkbox input { width: 18px; height: 18px; accent-color: var(--accent); }
+.moon-checkbox input:disabled + span { opacity: .6; }
+@keyframes moon-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .moon-spinner__visual { animation: none; border-top-color: var(--accent); }
+}
