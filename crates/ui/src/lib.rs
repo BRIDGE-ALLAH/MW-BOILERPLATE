@@ -207,6 +207,75 @@ pub fn MoonCheckbox(
     }
 }
 
+#[derive(Clone, PartialEq)]
+pub struct MoonSelectOption {
+    pub label: String,
+    pub value: String,
+}
+
+#[component]
+pub fn MoonSelect(
+    id: String,
+    label: String,
+    value: String,
+    options: Vec<MoonSelectOption>,
+    placeholder: Option<String>,
+    #[props(default)] required: bool,
+    #[props(default)] disabled: bool,
+    onchange: Option<EventHandler<FormEvent>>,
+) -> Element {
+    rsx! {
+        div { class: "moon-field",
+            MoonLabel { for_id: id.clone(), label, required }
+            select {
+                id: "{id}",
+                class: "moon-input",
+                value: "{value}",
+                required,
+                disabled,
+                onchange: move |event| {
+                    if let Some(handler) = &onchange {
+                        handler.call(event);
+                    }
+                },
+                if let Some(text) = placeholder {
+                    option { value: "", disabled: true, "{text}" }
+                }
+                for option in options {
+                    option { value: "{option.value}", "{option.label}" }
+                }
+            }
+        }
+    }
+}
+
+#[component]
+pub fn MoonSwitch(
+    id: String,
+    label: String,
+    #[props(default)] checked: bool,
+    #[props(default)] disabled: bool,
+    onchange: Option<EventHandler<FormEvent>>,
+) -> Element {
+    rsx! {
+        label { class: "moon-checkbox moon-switch", r#for: "{id}",
+            input {
+                id: "{id}",
+                r#type: "checkbox",
+                role: "switch",
+                checked,
+                disabled,
+                onchange: move |event| {
+                    if let Some(handler) = &onchange {
+                        handler.call(event);
+                    }
+                }
+            }
+            span { "{label}" }
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::described_by;
