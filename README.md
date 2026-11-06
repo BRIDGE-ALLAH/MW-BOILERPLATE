@@ -10,7 +10,7 @@ The goal is a compact foundation that teams and AI coding agents can extend safe
 - Cargo workspace with web, core, contracts, UI, and xtask packages.
 - Dioxus web shell, typed routes, responsive navigation, and light/dark theme toggle.
 - Framework-independent core identifier and Serde pagination/error DTOs.
-- Initial Moon UI primitives: `MoonButton` and `MoonCard`.
+- Moon UI primitives and native controls: button, card, badge, separator, spinner, visually-hidden text, input, textarea, and checkbox (source committed; compile verification pending).
 - Cargo task aliases, GitHub Actions validation/security workflows, Docker and Compose deployment files.
 
 **Partial, planned, or not yet verified**
