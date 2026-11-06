@@ -12,7 +12,8 @@
 - M00-001 is BLOCKED after release research because local Rust/Cargo/Dioxus CLI verification cannot run here.
 - M02-001 design contract is COMPLETED: component API/accessibility contract, semantic token roadmap, and accessibility guide are documented.
 - M00-002, M00-003, and M01-001 are BLOCKED by their M00-001 dependency.
-- Other independent tasks remain READY; no implementation task is marked COMPLETED.
+- M02-002 and M02-003 are IN_PROGRESS: primitive, form-control, styling, and showcase source changes are committed; compilation/render verification remains pending.
+- Other independent tasks remain READY; no UI implementation task is marked COMPLETED.
 - No implementation task is marked COMPLETED because no Rust/browser/deployment test gate has been run in this environment.
 
 ## Verified repository facts
@@ -24,7 +25,7 @@
 - Dockerfile and Compose exist under deploy/.
 - CI and scheduled cargo-audit workflows exist.
 - Browser E2E tests are not present in docs/TESTING.md.
-- Existing reusable Moon UI exports are MoonButton and MoonCard only.
+- Moon UI source exports MoonButton, MoonCard, MoonBadge, MoonSeparator, MoonSpinner, MoonVisuallyHidden, MoonInput, MoonTextarea, and MoonCheckbox; source compile is unverified.
 - No API client, config crate, backend, database, or authentication service is present.
 - docs/MONOREPO.md, docs/DEPENDENCY_RULES.md, docs/PRODUCT-BLUEPRINT.md and .plan are now committed.
 
@@ -38,7 +39,7 @@
 ## Validation evidence and limitations
 
 - Prior environment inspection did not find cargo, rustc, dx, or Docker on PATH.
-- Rust formatting/check/clippy/test/WASM build: NOT RUN.
+- Rust formatting/check/clippy/test/WASM build: NOT RUN (no local toolchain available).
 - Dioxus development and production build: NOT RUN.
 - Browser E2E/accessibility: NOT RUN; harness not configured.
 - Docker image/runtime: NOT RUN.
