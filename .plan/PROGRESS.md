@@ -12,7 +12,7 @@
 - M00-001 is BLOCKED after release research because local Rust/Cargo/Dioxus CLI verification cannot run here.
 - M02-001 design contract is COMPLETED: component API/accessibility contract, semantic token roadmap, and accessibility guide are documented.
 - M00-002, M00-003, and M01-001 are BLOCKED by their M00-001 dependency.
-- M02-002 and M02-003 are IN_PROGRESS: primitive, form-control, styling, and showcase source changes are committed; compilation/render verification remains pending.
+- M02-002 and M02-003 are IN_PROGRESS: MoonButton callback/disabled behavior, Badge, Separator, Spinner, VisuallyHidden, Input, Textarea, Checkbox, semantic CSS, and controlled showcase examples are committed. Four unit tests cover helper wiring for help/error description IDs; test execution and component render/browser verification remain pending.
 - Other independent tasks remain READY; no UI implementation task is marked COMPLETED.
 - No implementation task is marked COMPLETED because no Rust/browser/deployment test gate has been run in this environment.
 
@@ -41,7 +41,7 @@
 - Prior environment inspection did not find cargo, rustc, dx, or Docker on PATH.
 - Rust formatting/check/clippy/test/WASM build: NOT RUN (no local toolchain available).
 - Dioxus development and production build: NOT RUN.
-- Browser E2E/accessibility: NOT RUN; harness not configured.
+- Browser E2E/accessibility: NOT RUN; harness not configured. Moon UI component render tests are also not configured.
 - Docker image/runtime: NOT RUN.
 - Baseline GitHub combined status returned an empty statuses array; this is UNKNOWN, not PASS.
 - CI workflow run state must be re-queried from GitHub Actions before release acceptance.
