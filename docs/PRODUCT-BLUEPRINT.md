@@ -33,8 +33,8 @@ Classification is based on repository files inspected on 2026-11-06. “Implemen
 | Dioxus web shell and typed routes | IMPLEMENTED | apps/web/src/app.rs and routes.rs |
 | Theme toggle and responsive shell | PARTIAL | CSS tokens and toggle exist; browser behavior is not E2E verified |
 | Core identifier and API DTOs | IMPLEMENTED | crates/core and crates/contracts; tests exist but were not run in this environment |
-| Moon UI | PARTIAL | MoonButton and MoonCard only |
-| Form and feedback components | MISSING | No reusable field, alert, badge, toast, etc. |
+| Moon UI | PARTIAL | Source exports button/card/badge/separator/spinner/visually-hidden/label/input/textarea/checkbox/switch/select; compile and render verification pending |
+| Form and feedback components | PARTIAL | Native field controls and badge are implemented in source; Alert/Toast and runtime verification remain outstanding |
 | Dialog | MISSING | Route explicitly documents deferral for focus/accessibility |
 | Config crate and validated config | MISSING | No crates/config; static frontend has no server runtime config |
 | Typed API client | MISSING | No crates/api-client; no backend endpoint is defined |
@@ -44,7 +44,7 @@ Classification is based on repository files inspected on 2026-11-06. “Implemen
 | CI | PARTIAL | CI workflow exists; Docker build validation and immutable action pinning are not established |
 | Security audit | PARTIAL | Scheduled cargo-audit workflow exists; lockfile is generated in workflow |
 | Docker/Coolify | PARTIAL | Dockerfile, Compose and deployment guide exist; image/runtime are not verified here |
-| Autonomous plan | MISSING | No .plan directory existed at audit time |
+| Autonomous plan | IMPLEMENTED | .plan contains the master plan, dependency graph, task index, milestones, task specs, and progress tracking |
 
 No duplicate business-domain implementation was found in the inspected app; product-specific logic is intentionally absent.
 
