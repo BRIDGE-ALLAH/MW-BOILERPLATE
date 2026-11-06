@@ -1,5 +1,5 @@
 # M03-003 — Verify Docker and Coolify Runtime
-**Priority:** P3 | **Agent:** DEVOPS_AGENT | **Status:** READY | **Execution:** SEQUENTIAL
+**Priority:** P3 | **Agent:** DEVOPS_AGENT | **Status:** BLOCKED | **Execution:** SEQUENTIAL
 ## Objective
 Prove the static Dioxus bundle is copied to the correct Nginx path and served with a functioning health check.
 ## Context
