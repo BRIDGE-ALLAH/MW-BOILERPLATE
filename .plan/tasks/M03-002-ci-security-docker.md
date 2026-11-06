@@ -1,5 +1,5 @@
 # M03-002 — Harden CI, Dependency, and Docker Build Validation
-**Priority:** P3 | **Agent:** DEVOPS_AGENT | **Status:** READY | **Execution:** PARALLEL
+**Priority:** P3 | **Agent:** DEVOPS_AGENT | **Status:** BLOCKED | **Execution:** PARALLEL
 ## Objective
 Align CI with master prompt: reproducible build, dependency/security checks, and Docker build validation.
 ## Context
