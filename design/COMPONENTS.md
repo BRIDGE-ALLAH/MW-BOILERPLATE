@@ -12,6 +12,7 @@ The following components are currently exported by `crates/ui`. Their source has
 | MoonSeparator | no props | Native horizontal rule |
 | MoonSpinner | optional `label: String` | Indeterminate status indicator; default label Loading |
 | MoonVisuallyHidden | `children` | Visually hidden content retained for assistive technology |
+| MoonLabel | `for_id: String, label: String`, optional `required: bool` | Native associated label with visible required marker |
 | MoonInput | `id, label, value`, optional `required, disabled, invalid, help_text, error_text, oninput` | Controlled native text input with associated label and optional descriptions |
 | MoonTextarea | `id, label, value`, optional `rows, required, disabled, invalid, help_text, error_text, oninput` | Controlled native textarea with associated label and optional descriptions |
 | MoonCheckbox | `id, label`, optional `checked, required, disabled, onchange` | Native checkbox nested in its associated label |
@@ -27,6 +28,7 @@ MoonCard { title: "Title", description: "Description" }
 MoonBadge { label: "Ready" }
 MoonSeparator {}
 MoonSpinner { label: "Loading report" }
+MoonLabel { for_id: "display-name", label: "Display name" }
 MoonInput {
     id: "display-name",
     label: "Display name",
