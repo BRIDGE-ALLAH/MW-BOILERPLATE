@@ -43,3 +43,8 @@ A release candidate requires successful format, workspace check, Clippy, unit/in
 ## Evidence policy
 
 Record exact commands, tool versions, exit status, and relevant CI run URL. Missing or unavailable status is UNKNOWN, not PASS. If infrastructure is unavailable, mark the gate BLOCKED and continue independent work.
+
+
+## Dialog browser verification still required
+
+The dialog showcase uses the platform `<dialog>` element. Before marking the dialog task complete, verify in a real browser that opening with `showModal()` moves focus into the modal, Tab and Shift+Tab remain within it, Escape closes it, focus returns to the invoking button, and the backdrop blocks interaction with the page. Also verify the accessible name and description in an accessibility tree or screen reader. These checks have not been run in the current environment.
