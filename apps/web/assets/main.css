@@ -146,7 +146,7 @@ footer { padding: 22px 32px; border-top: 1px solid var(--border); color: var(--m
 
 /* Native modal dialog: browser-managed modality and focus behavior. */
 .moon-dialog {
-  width: min( min( calc(100% - 2rem), 560px), 100%);
+  width: min(560px, calc(100% - 2rem));
   max-width: 560px;
   padding: 28px;
   border: 1px solid var(--border);
