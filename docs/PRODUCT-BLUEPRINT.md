@@ -35,7 +35,7 @@ Classification is based on repository files inspected on 2026-11-06. “Implemen
 | Core identifier and API DTOs | IMPLEMENTED | crates/core and crates/contracts; tests exist but were not run in this environment |
 | Moon UI | PARTIAL | Source exports button/card/badge/separator/spinner/visually-hidden/label/input/textarea/checkbox/switch/select; compile and render verification pending |
 | Form and feedback components | PARTIAL | Native field controls and badge are implemented in source; Alert/Toast and runtime verification remain outstanding |
-| Dialog | MISSING | Route explicitly documents deferral for focus/accessibility |
+| Dialog | PARTIAL | Native `<dialog>` showcase exists; reusable component and browser verification remain outstanding |
 | Config crate and validated config | MISSING | No crates/config; static frontend has no server runtime config |
 | Typed API client | MISSING | No crates/api-client; no backend endpoint is defined |
 | Loading/empty/error states | PARTIAL | Not yet standardized as reusable patterns |
