@@ -1,5 +1,5 @@
 # M01-002 — Implement Typed API Client Boundary
-**Priority:** P1 | **Agent:** API_AGENT | **Status:** READY | **Execution:** SEQUENTIAL
+**Priority:** P1 | **Agent:** API_AGENT | **Status:** BLOCKED | **Execution:** SEQUENTIAL
 ## Objective
 Provide a typed, replaceable HTTP boundary that consumes existing contracts without coupling UI to transport.
 ## Context
