@@ -6,12 +6,18 @@ use dioxus::prelude::*;
 pub fn MoonButton(
     label: String,
     #[props(default)] disabled: bool,
+    onclick: Option<EventHandler<MouseEvent>>,
 ) -> Element {
     rsx! {
         button {
             class: "moon-button",
             r#type: "button",
             disabled,
+            onclick: move |event| {
+                if let Some(handler) = &onclick {
+                    handler.call(event);
+                }
+            },
             "{label}"
         }
     }
