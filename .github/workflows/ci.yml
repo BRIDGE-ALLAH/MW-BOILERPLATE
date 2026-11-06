@@ -20,3 +20,7 @@ jobs:
       - run: cargo clippy --workspace --all-targets -- -D warnings
       - run: cargo test --workspace
       - run: cargo check -p mw-web --target wasm32-unknown-unknown
+      - name: Install Dioxus CLI
+        run: cargo install dioxus-cli --locked
+      - name: Build web bundle
+        run: dx build --release --package mw-web
