@@ -67,7 +67,7 @@ MoonSelect {
 
 Every interactive component needs a documented public API, defaults, accessible naming, keyboard interaction, disabled behavior, focus behavior, CSS ownership, usage example, and tests. Prefer native HTML semantics. Avoid duplicating validation or product-specific business rules in generic controls.
 
-Dialog remains gated on focus entry/return, Escape behavior, accessible naming, and keyboard tests. Do not replace the existing honest placeholder with a non-functional visual mock.
+A reusable MoonDialog component remains gated on focus entry/return, Escape behavior, accessible naming, and keyboard tests. The current native-dialog showcase is a functional browser-native example, but still requires browser verification.
 
 
 ## Native dialog example
