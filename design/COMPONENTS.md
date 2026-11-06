@@ -15,6 +15,8 @@ The following components are currently exported by `crates/ui`. Their source has
 | MoonLabel | `for_id: String, label: String`, optional `required: bool` | Native associated label with visible required marker |
 | MoonInput | `id, label, value`, optional `required, disabled, invalid, help_text, error_text, oninput` | Controlled native text input with associated label and optional descriptions |
 | MoonTextarea | `id, label, value`, optional `rows, required, disabled, invalid, help_text, error_text, oninput` | Controlled native textarea with associated label and optional descriptions |
+| MoonSwitch | `id, label`, optional `checked, disabled, onchange` | Native checkbox exposed with switch role and native keyboard behavior |
+| MoonSelect | `id, label, value, options`, optional `placeholder, required, disabled, onchange` | Controlled native select with keyboard behavior and associated label |
 | MoonCheckbox | `id, label`, optional `checked, required, disabled, onchange` | Native checkbox nested in its associated label |
 
 The component showcase uses MoonBadge, MoonSeparator, MoonSpinner, MoonInput, MoonTextarea, and a controlled MoonCheckbox. MoonLabel is also used internally by MoonInput and MoonTextarea. MoonVisuallyHidden is exported for reuse but does not yet have a dedicated showcase example.
