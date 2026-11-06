@@ -10,6 +10,7 @@
 - 18 microtasks defined across 5 milestones.
 - M00-004 documentation reconciliation: COMPLETED_WITH_LIMITATIONS. Product blueprint, monorepo/dependency guides, master plan, task index, graph, execution strategy, progress, five milestones, 18 task specifications, and README integration are committed.
 - M00-001 is BLOCKED after release research because local Rust/Cargo/Dioxus CLI verification cannot run here.
+- M02-001 design contract is COMPLETED: component API/accessibility contract, semantic token roadmap, and accessibility guide are documented.
 - M00-002, M00-003, and M01-001 are BLOCKED by their M00-001 dependency.
 - Other independent tasks remain READY; no implementation task is marked COMPLETED.
 - No implementation task is marked COMPLETED because no Rust/browser/deployment test gate has been run in this environment.
