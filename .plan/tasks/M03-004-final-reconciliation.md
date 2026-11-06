@@ -1,5 +1,5 @@
 # M03-004 — Final Security and Architecture Reconciliation
-**Priority:** P3 | **Agent:** SECURITY_AGENT | **Status:** READY | **Execution:** INTEGRATION_REQUIRED
+**Priority:** P3 | **Agent:** SECURITY_AGENT | **Status:** BLOCKED | **Execution:** INTEGRATION_REQUIRED
 ## Objective
 Compare implementation, contracts, docs, CI, security, and deployment against the blueprint and close or classify every gap.
 ## Context
