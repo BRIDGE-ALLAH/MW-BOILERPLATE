@@ -49,12 +49,13 @@ The DTO does not currently enforce a code vocabulary or validate message content
 ## UI crate
 
 The current exported source APIs are:
-- `MoonButton { label: String, disabled?: bool }`: native button; default type button.
+- `MoonButton { label: String, disabled?: bool, onclick?: EventHandler<MouseEvent> }`: native button; default type button.
 - `MoonCard { title: String, description: String }`: section surface with heading and description.
 - `MoonBadge { label: String }`: neutral status text.
 - `MoonSeparator {}`: semantic horizontal rule.
 - `MoonSpinner { label?: String }`: status indicator with accessible label.
 - `MoonVisuallyHidden { children }`: visually hidden accessible content.
+- `MoonLabel { for_id, label, required? }`: reusable associated label.
 - `MoonInput { id, label, value, required?, disabled?, invalid?, help_text?, error_text?, oninput? }`: controlled text input.
 - `MoonTextarea { id, label, value, rows?, required?, disabled?, invalid?, help_text?, error_text?, oninput? }`: controlled textarea.
 - `MoonCheckbox { id, label, checked?, required?, disabled?, onchange? }`: native checkbox.
