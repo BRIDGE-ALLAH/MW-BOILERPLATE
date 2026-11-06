@@ -1,5 +1,5 @@
 # M02-006 — Integrate Component Showcase and Route UX
-**Priority:** P2 | **Agent:** INTEGRATION_AGENT | **Status:** READY | **Execution:** INTEGRATION_REQUIRED
+**Priority:** P2 | **Agent:** INTEGRATION_AGENT | **Status:** BLOCKED | **Execution:** INTEGRATION_REQUIRED
 ## Objective
 Make the sample app demonstrate the actual reusable components and states without becoming a product dashboard.
 ## Context
