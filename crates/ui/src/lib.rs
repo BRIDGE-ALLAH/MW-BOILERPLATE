@@ -93,7 +93,7 @@ pub fn MoonInput(
                 aria_invalid: invalid,
                 aria_describedby: described_by,
                 oninput: move |event| {
-                    if let Some(handler) = oninput {
+                    if let Some(handler) = &oninput {
                         handler.call(event);
                     }
                 }
@@ -177,7 +177,7 @@ pub fn MoonCheckbox(
                 required,
                 disabled,
                 onchange: move |event| {
-                    if let Some(handler) = onchange {
+                    if let Some(handler) = &onchange {
                         handler.call(event);
                     }
                 }
