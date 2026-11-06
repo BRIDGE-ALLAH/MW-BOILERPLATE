@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use mw_ui::{MoonButton, MoonCard};
+use mw_ui::{MoonBadge, MoonButton, MoonCard, MoonInput, MoonSeparator, MoonSpinner, MoonTextarea};
 
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
@@ -110,10 +110,20 @@ fn Components() -> Element {
         h1 { "Component library" }
         p { class: "lead", "A small initial set of primitives. Expand only with documented APIs, accessibility behavior, and tests." }
         div { class: "card-grid",
-            MoonCard { title: "Button", description: "Basic action primitive.", }
+            MoonCard { title: "Button", description: "Native action primitive with disabled state." }
             MoonCard { title: "Card", description: "Surface for grouping related content." }
+            MoonCard { title: "Badge", description: "Compact status text that remains readable without color." }
+            MoonCard { title: "Separator", description: "Semantic divider between content groups." }
+            MoonCard { title: "Spinner", description: "Accessible indeterminate progress indicator." }
+        }
+        MoonSeparator {}
+        h2 { "Status and progress" }
+        div { class: "actions",
+            MoonBadge { label: "Foundation ready" }
+            MoonSpinner { label: "Example progress status" }
         }
         Link { to: Route::ButtonPage {}, "Button documentation →" }
+        Link { to: Route::InputPage {}, "Form controls →" }
     }
 }
 
@@ -130,17 +140,27 @@ fn ButtonPage() -> Element {
 #[component]
 fn InputPage() -> Element {
     let mut value = use_signal(String::new);
+    let mut notes = use_signal(String::new);
     rsx! {
-        h1 { "Input" }
-        p { class: "lead", "Native input example with controlled Dioxus signal state." }
-        label { class: "field-label", r#for: "demo-input", "Display name" }
-        input {
+        h1 { "Form controls" }
+        p { class: "lead", "Reusable native controls with explicit labels, controlled values, and optional validation messaging." }
+        MoonInput {
             id: "demo-input",
-            class: "text-input",
+            label: "Display name",
             value: "{value}",
+            help_text: Some("This value is held in page state.".to_string()),
             oninput: move |event| value.set(event.value())
         }
         p { "Current value: {value}" }
+        MoonTextarea {
+            id: "demo-notes",
+            label: "Notes",
+            value: "{notes}",
+            rows: 4,
+            help_text: Some("A native multi-line text control.".to_string()),
+            oninput: move |event| notes.set(event.value())
+        }
+        p { "Character count: {notes.chars().count()}" }
     }
 }
 
