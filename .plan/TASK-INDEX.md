@@ -15,7 +15,7 @@ Status reflects repository evidence at plan creation, not an assumption that tes
 | M02-002 | Expand primitive components | P2 | FRONTEND_AGENT | M02-001 | IN_PROGRESS | PARALLEL |
 | M02-003 | Implement accessible form components | P2 | FRONTEND_AGENT | M02-001 | IN_PROGRESS | PARALLEL |
 | M02-004 | Implement feedback and application states | P2 | FRONTEND_AGENT | M02-001, M01-003 | BLOCKED | PARALLEL |
-| M02-005 | Implement accessible dialog | P2 | FRONTEND_AGENT | M02-001 | READY | SEQUENTIAL |
+| M02-005 | Implement accessible dialog | P2 | FRONTEND_AGENT | M02-001 | IN_PROGRESS | SEQUENTIAL |
 | M02-006 | Complete component showcase and route UX | P2 | INTEGRATION_AGENT | M02-002, M02-003, M02-004, M02-005 | BLOCKED | INTEGRATION_REQUIRED |
 | M03-001 | Add browser E2E and accessibility checks | P3 | TESTING_AGENT | M02-006 | BLOCKED | SEQUENTIAL |
 | M03-002 | Harden CI, dependency and Docker validation | P3 | DEVOPS_AGENT | M00-002, M00-003 | BLOCKED | PARALLEL |
