@@ -1,0 +1,14 @@
+[application]
+name = "mw-web"
+default_platform = "web"
+
+[web.app]
+title = "MW Boilerplate"
+base_path = "/"
+
+[web.watcher]
+reload_html = true
+
+[web.resource]
+style = []
+script = []
