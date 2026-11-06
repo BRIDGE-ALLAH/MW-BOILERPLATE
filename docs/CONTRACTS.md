@@ -48,10 +48,18 @@ The DTO does not currently enforce a code vocabulary or validate message content
 
 ## UI crate
 
-- `MoonButton { label: String }`: native button with primary styling and text label.
-- `MoonCard { title: String, description: String }`: section surface with heading and descriptive paragraph.
+The current exported source APIs are:
+- `MoonButton { label: String, disabled?: bool }`: native button; default type button.
+- `MoonCard { title: String, description: String }`: section surface with heading and description.
+- `MoonBadge { label: String }`: neutral status text.
+- `MoonSeparator {}`: semantic horizontal rule.
+- `MoonSpinner { label?: String }`: status indicator with accessible label.
+- `MoonVisuallyHidden { children }`: visually hidden accessible content.
+- `MoonInput { id, label, value, required?, disabled?, invalid?, help_text?, error_text?, oninput? }`: controlled text input.
+- `MoonTextarea { id, label, value, rows?, required?, disabled?, invalid?, help_text?, error_text?, oninput? }`: controlled textarea.
+- `MoonCheckbox { id, label, checked?, required?, disabled?, onchange? }`: native checkbox.
 
-No variants, loading API, event callback API, form components, or dialog are currently exported.
+These source declarations have not yet been compiled in this environment. The UI crate does not provide a Select, Switch, Alert, Toast, Tooltip, Dialog, or Tabs component. See [Moon UI Components](../design/COMPONENTS.md) for examples and limitations.
 
 ## Compatibility policy
 
