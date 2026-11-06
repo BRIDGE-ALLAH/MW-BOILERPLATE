@@ -2,6 +2,15 @@
 
 use dioxus::prelude::*;
 
+fn described_by(id: &str, has_help: bool, has_error: bool) -> Option<String> {
+    match (has_help, has_error) {
+        (true, true) => Some(format!("{id}-help {id}-error")),
+        (true, false) => Some(format!("{id}-help")),
+        (false, true) => Some(format!("{id}-error")),
+        (false, false) => None,
+    }
+}
+
 #[component]
 pub fn MoonButton(
     label: String,
@@ -76,12 +85,7 @@ pub fn MoonInput(
     error_text: Option<String>,
     oninput: Option<EventHandler<FormEvent>>,
 ) -> Element {
-    let described_by = match (&help_text, &error_text) {
-        (Some(_), Some(_)) => Some(format!("{id}-help {id}-error")),
-        (Some(_), None) => Some(format!("{id}-help")),
-        (None, Some(_)) => Some(format!("{id}-error")),
-        (None, None) => None,
-    };
+    let described_by = described_by(&id, help_text.is_some(), error_text.is_some());
 
     rsx! {
         div { class: "moon-field",
@@ -190,5 +194,33 @@ pub fn MoonCheckbox(
             }
             span { "{label}" }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::described_by;
+
+    #[test]
+    fn described_by_links_help_and_error_messages() {
+        assert_eq!(
+            described_by("profile", true, true),
+            Some("profile-help profile-error".to_string())
+        );
+    }
+
+    #[test]
+    fn described_by_links_help_only() {
+        assert_eq!(described_by("profile", true, false), Some("profile-help".to_string()));
+    }
+
+    #[test]
+    fn described_by_links_error_only() {
+        assert_eq!(described_by("profile", false, true), Some("profile-error".to_string()));
+    }
+
+    #[test]
+    fn described_by_is_absent_without_messages() {
+        assert_eq!(described_by("profile", false, false), None);
     }
 }
