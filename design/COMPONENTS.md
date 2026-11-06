@@ -1,79 +1,59 @@
-# Moon UI Component Contracts
+# Moon UI Components
 
-**Status:** The first two components are implemented. The remaining APIs below are target contracts, not claims of shipped functionality. Exact Dioxus prop/event syntax must be verified against the pinned stable release during implementation.
+## Implemented source APIs
 
-## API conventions
+The following components are currently exported by `crates/ui`. Their source has been committed, but compilation and browser behavior remain unverified until the Rust/Dioxus toolchain gate can run.
 
-- Component names use `Moon` prefix in Rust exports; CSS classes use `moon-` prefix.
-- Prefer native HTML semantics and controlled state. A component emits events; the consuming page owns application state.
-- Props should be explicit and typed. Avoid stringly typed variants when a Rust enum is practical.
-- Defaults must be documented and stable. Avoid hidden global state.
-- Shared UI must not call APIs, read product data, or own domain validation.
-- CSS is owned by `crates/ui` and consumes semantic variables from the app's theme layer.
-- Every interactive component documents accessible name, keyboard behavior, focus behavior, disabled state, and loading state if applicable.
-
-## Implemented API
-
-| Component | Current API | Current behavior |
+| Component | Current API | Behavior |
 |---|---|---|
-| MoonButton | `label: String` | Native button with primary styling and text label |
-| MoonCard | `title: String, description: String` | Section surface with heading and descriptive paragraph |
+| MoonButton | `label: String`, optional `disabled: bool` | Native button, default type button, disabled state |
+| MoonCard | `title: String, description: String` | Section surface with heading and description |
+| MoonBadge | `label: String` | Neutral status text, not color-dependent |
+| MoonSeparator | no props | Native horizontal rule |
+| MoonSpinner | optional `label: String` | Indeterminate status indicator; default label Loading |
+| MoonVisuallyHidden | `children` | Visually hidden content retained for assistive technology |
+| MoonInput | `id, label, value`, optional `required, disabled, invalid, help_text, error_text, oninput` | Controlled native text input with associated label and optional descriptions |
+| MoonTextarea | `id, label, value`, optional `rows, required, disabled, invalid, help_text, error_text, oninput` | Controlled native textarea with associated label and optional descriptions |
+| MoonCheckbox | `id, label`, optional `checked, required, disabled, onchange` | Native checkbox nested in its associated label |
 
-The current Button API does not yet expose variants, sizes, disabled/loading state, type, or callback props. The current Card API is a fixed title/description surface.
+The component showcase uses MoonBadge, MoonSeparator, MoonSpinner, MoonInput, and MoonTextarea. MoonCheckbox and MoonVisuallyHidden are exported for reuse but do not yet have dedicated showcase examples.
 
-## Target component contracts
+## Usage examples
 
-### Primitives
+```rust
+MoonButton { label: "Save".to_string() }
+MoonButton { label: "Unavailable".to_string(), disabled: true }
+MoonCard { title: "Title", description: "Description" }
+MoonBadge { label: "Ready" }
+MoonSeparator {}
+MoonSpinner { label: "Loading report" }
+MoonInput {
+    id: "display-name",
+    label: "Display name",
+    value: "{value}",
+    oninput: move |event| value.set(event.value())
+}
+MoonTextarea {
+    id: "notes",
+    label: "Notes",
+    value: "{notes}",
+    rows: 4,
+    oninput: move |event| notes.set(event.value())
+}
+MoonCheckbox { id: "terms", label: "Accept terms" }
+```
 
-| Component | Target props | Defaults / behavior | Accessibility and keyboard |
-|---|---|---|---|
-| Button | `variant`, `size`, `disabled`, `loading`, `type`, `aria_label`, `onclick`, children | variant primary; size medium; type button; loading disables repeated activation | Native button; Enter/Space activate; visible focus; loading state announced without removing accessible name |
-| Separator | `orientation`, `decorative` | horizontal, decorative | Use separator role/orientation only when semantic; decorative separators are hidden from accessibility tree |
-| Spinner | `size`, `label` | medium; requires meaningful label when conveying progress | Expose status role and accessible name; decorative spinner is hidden from assistive tech |
-| VisuallyHidden | children | visually hidden, remains in accessibility tree | Must not use display:none/visibility:hidden; no focusable content unless intended |
+## Known limitations
 
-### Form
+- MoonButton has no variant, size, loading state, or click callback prop yet.
+- MoonInput is currently text-only; specialized email/number/password semantics are not exposed.
+- MoonTextarea and MoonInput rely on the caller to own validation and state.
+- MoonCheckbox exposes a native change event but no custom form-state abstraction.
+- Select, Switch, Alert, Toast, Tooltip, Dialog, Tabs, and layout primitives remain deferred.
+- Component render tests and browser E2E are not configured or executed yet.
 
-| Component | Target props | Defaults / behavior | Accessibility and keyboard |
-|---|---|---|---|
-| Label | `html_for`, children | explicit association | Native label association |
-| Input | `value`, `type`, `disabled`, `required`, `invalid`, `help_text`, `error_text`, `oninput`, `onchange` | text input; controlled when value supplied | Label association; invalid state and described-by references; native keyboard editing |
-| Textarea | `value`, `rows`, `disabled`, `required`, `invalid`, `help_text`, `error_text`, `oninput` | rows 3; controlled value | Label association; error/help descriptions; native keyboard editing |
-| Checkbox | `checked`, `disabled`, `required`, `onchange` | unchecked | Native checkbox semantics; Space toggles |
-| Switch | `checked`, `disabled`, `label`, `onchange` | off | role=switch only if native checkbox presentation is insufficient; Space toggles; state exposed |
-| Select | `value`, `options`, `disabled`, `required`, `onchange` | native select preferred | Native select keyboard behavior and label association |
+## Implementation requirements
 
-Validation messages are rendered by the consuming form or shared field wrapper; do not silently validate product-specific rules inside generic controls.
+Every interactive component needs a documented public API, defaults, accessible naming, keyboard interaction, disabled behavior, focus behavior, CSS ownership, usage example, and tests. Prefer native HTML semantics. Avoid duplicating validation or product-specific business rules in generic controls.
 
-### Feedback
-
-| Component | Target props | Defaults / behavior | Accessibility and keyboard |
-|---|---|---|---|
-| Alert | `variant`, `title`, children | neutral; persistent content | role=status for non-urgent updates; role=alert only for urgent messages |
-| Badge | `variant`, children | neutral | Status must remain understandable without color |
-| Tooltip | `content`, `delay`, trigger | opt-in, short descriptive content | Trigger remains keyboard reachable; Escape dismisses; tooltip does not contain interactive content |
-| Dialog | `open`, `title`, `description`, `modal`, `onclose`, children | closed; modal only when explicitly required | Accessible name; focus entry/containment/return; Escape behavior; background interaction controlled when modal |
-| Toast | `variant`, `title`, `description`, `duration`, `onclose` | short-lived only when safe | Announce appropriately; do not steal focus; pause/dismiss controls for actionable content; avoid disappearing critical errors |
-
-### Layout
-
-| Component | Target props | Defaults / behavior | Accessibility and keyboard |
-|---|---|---|---|
-| Card | `title`, `description`, children | neutral surface | Use section/article semantics only when content structure warrants it |
-| Container | `size`, children | responsive max width | No semantic role by default |
-| Stack | `direction`, `gap`, children | vertical | Layout-only wrapper |
-| Grid | `columns`, `gap`, children | responsive columns | Preserve logical DOM reading order |
-| Tabs | `value`, `items`, `onchange` | first tab only when a valid default exists | Full WAI-ARIA tab keyboard model; otherwise use ordinary links/buttons |
-
-## Component implementation gates
-
-1. Read the matching task in [.plan/TASK-INDEX.md](../.plan/TASK-INDEX.md).
-2. Verify current Dioxus 0.7 API and native HTML semantics before writing RSX.
-3. Add semantic-token CSS and responsive states.
-4. Test accessible name, focus, keyboard, disabled, and error/loading behavior.
-5. Add a real showcase usage; do not leave dead examples.
-6. Update this inventory only after the exported component exists and compiles.
-
-## Deferred
-
-Popover, complex date/time pickers, command palettes, rich text, data tables, and product-specific form workflows are deliberately outside the initial component baseline. Add them only with concrete consumer demand and a self-contained task.
+Dialog remains gated on focus entry/return, Escape behavior, accessible naming, and keyboard tests. Do not replace the existing honest placeholder with a non-functional visual mock.
