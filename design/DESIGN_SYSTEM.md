@@ -29,7 +29,7 @@ Extend only when a real component consumes the token.
 
 | Category | Suggested semantic tokens | Status |
 |---|---|---|
-| Color | `--bg`, `--surface`, `--surface-muted`, `--text`, `--muted`, `--border`, `--accent`, `--accent-contrast`, `--danger`, `--success`, `--warning`, `--info` | Base subset implemented; status colors deferred |
+| Color | `--bg`, `--surface`, `--surface-muted`, `--text`, `--muted`, `--border`, `--accent`, `--accent-contrast`, `--danger`, `--success`, `--warning`, `--info` | Base colors and danger token implemented; success/warning/info deferred |
 | Typography | `--font-sans`, `--font-mono`, `--text-xs` through `--text-2xl`, `--line-height` | Partially implemented via root font stack and element styles |
 | Spacing | `--space-1` through `--space-8` | Not yet tokenized |
 | Radius | `--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-pill` | Single `--radius` exists |
