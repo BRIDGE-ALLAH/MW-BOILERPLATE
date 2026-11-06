@@ -4,11 +4,11 @@ Status reflects repository evidence at plan creation, not an assumption that tes
 
 | ID | Task | Priority | Agent | Dependencies | Status | Parallelism |
 |---|---|---:|---|---|---|---|
-| M00-001 | Verify Rust/Dioxus/CLI compatibility | P0 | ARCHITECT_AGENT | — | READY | SEQUENTIAL |
-| M00-002 | Reproducible workspace and CI baseline | P0 | DEVOPS_AGENT | M00-001 | READY | SEQUENTIAL |
-| M00-003 | Dependency and security baseline audit | P0 | SECURITY_AGENT | M00-001 | READY | PARALLEL |
+| M00-001 | Verify Rust/Dioxus/CLI compatibility | P0 | ARCHITECT_AGENT | — | BLOCKED | SEQUENTIAL |
+| M00-002 | Reproducible workspace and CI baseline | P0 | DEVOPS_AGENT | M00-001 | BLOCKED | SEQUENTIAL |
+| M00-003 | Dependency and security baseline audit | P0 | SECURITY_AGENT | M00-001 | BLOCKED | PARALLEL |
 | M00-004 | Reconcile documentation and contracts | P0 | DOCUMENTATION_AGENT | — | COMPLETED_WITH_LIMITATIONS | PARALLEL |
-| M01-001 | Define public client configuration boundary | P1 | ARCHITECT_AGENT | M00-001 | READY | SEQUENTIAL |
+| M01-001 | Define public client configuration boundary | P1 | ARCHITECT_AGENT | M00-001 | BLOCKED | SEQUENTIAL |
 | M01-002 | Implement typed API client boundary | P1 | API_AGENT | M01-001 | READY | SEQUENTIAL |
 | M01-003 | Standardize typed error and recovery mapping | P1 | INTEGRATION_AGENT | M01-002 | READY | SEQUENTIAL |
 | M02-001 | Define Moon UI component contract and tokens | P2 | UI_DESIGN_AGENT | M00-004 | READY | SEQUENTIAL |
