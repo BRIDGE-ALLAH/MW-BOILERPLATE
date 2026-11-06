@@ -12,8 +12,8 @@ Status reflects repository evidence at plan creation, not an assumption that tes
 | M01-002 | Implement typed API client boundary | P1 | API_AGENT | M01-001 | READY | SEQUENTIAL |
 | M01-003 | Standardize typed error and recovery mapping | P1 | INTEGRATION_AGENT | M01-002 | READY | SEQUENTIAL |
 | M02-001 | Define Moon UI component contract and tokens | P2 | UI_DESIGN_AGENT | M00-004 | COMPLETED | SEQUENTIAL |
-| M02-002 | Expand primitive components | P2 | FRONTEND_AGENT | M02-001 | READY | PARALLEL |
-| M02-003 | Implement accessible form components | P2 | FRONTEND_AGENT | M02-001 | READY | PARALLEL |
+| M02-002 | Expand primitive components | P2 | FRONTEND_AGENT | M02-001 | IN_PROGRESS | PARALLEL |
+| M02-003 | Implement accessible form components | P2 | FRONTEND_AGENT | M02-001 | IN_PROGRESS | PARALLEL |
 | M02-004 | Implement feedback and application states | P2 | FRONTEND_AGENT | M02-001, M01-003 | READY | PARALLEL |
 | M02-005 | Implement accessible dialog | P2 | FRONTEND_AGENT | M02-001 | READY | SEQUENTIAL |
 | M02-006 | Complete component showcase and route UX | P2 | INTEGRATION_AGENT | M02-002, M02-003, M02-004, M02-005 | READY | INTEGRATION_REQUIRED |
