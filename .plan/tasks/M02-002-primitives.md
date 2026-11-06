@@ -1,5 +1,5 @@
 # M02-002 — Expand Moon UI Primitives
-**Priority:** P2 | **Agent:** FRONTEND_AGENT | **Status:** READY | **Execution:** PARALLEL
+**Priority:** P2 | **Agent:** FRONTEND_AGENT | **Status:** IN_PROGRESS | **Execution:** PARALLEL
 ## Objective
 Build a small tested set of reusable primitives beyond MoonButton and MoonCard.
 ## Context
