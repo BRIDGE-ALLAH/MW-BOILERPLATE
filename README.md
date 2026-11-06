@@ -1,30 +1,36 @@
 # MW-BOILERPLATE
 
-Reusable, production-oriented Rust and Dioxus web application foundation for MoonWitness, A-L-L-A-H, and future products.
-
-> Status: foundation bootstrap in progress. This repository starts with a compact, contract-first Cargo workspace; architecture is expanded only when a real implementation boundary exists.
-
-## Goals
-
-- Rust-first development with Dioxus for the web UI.
-- Cargo workspace with centralized dependency versions.
-- UI, contracts, configuration, and transport boundaries kept separate.
-- Neutral, reusable design system with light and dark themes.
-- Reproducible checks, CI, container build, and Coolify-compatible deployment.
-
-## Prerequisites
-
-- Stable Rust toolchain (see `rust-toolchain.toml`).
-- `wasm32-unknown-unknown` target.
-- Dioxus CLI (`dx`) matching the workspace Dioxus version.
+Reusable Rust + Dioxus application foundation. The workspace separates web composition, reusable UI, serializable contracts, framework-independent core types, and Cargo task automation.
 
 ## Quick start
 
+Install the Dioxus CLI and run the browser development server:
+
 ```bash
-rustup target add wasm32-unknown-unknown
 cargo install dioxus-cli --locked
- dx serve --package mw-web
+cargo dev
 ```
+
+`cargo dev` is the Rust-workspace equivalent of a pnpm dev script. It runs `dx serve --package mw-web`, including Dioxus rebuild and browser hot reload. No Node.js or pnpm is required.
+
+## Commands
+
+| Command | Purpose |
+|---|---|
+| `cargo dev` | Start local dev server with hot reload |
+| `cargo build-web` | Build optimized web bundle |
+| `cargo check-all` | Check all workspace crates |
+| `cargo test-all` | Run all tests |
+| `cargo lint` | Run Clippy with warnings denied |
+| `cargo fmt --all` | Format Rust code |
+
+## Workspace
+
+- `apps/web`: Dioxus web app and routes.
+- `crates/ui`: reusable Dioxus primitives.
+- `crates/contracts`: Serde DTOs for API boundaries.
+- `crates/core`: framework-independent types.
+- `xtask`: implementation behind Cargo task aliases.
 
 ## Validation
 
@@ -36,14 +42,18 @@ cargo test --workspace
 cargo check -p mw-web --target wasm32-unknown-unknown
 ```
 
-## Workspace
+CI runs the validation suite on pushes to main and pull requests. A green workflow is required before treating a revision as validated.
 
-See `docs/ARCHITECTURE.md`, `docs/DEVELOPMENT.md`, and `docs/CONTRACTS.md` for the current implemented boundaries. Documentation describes only what exists in this repository.
+## Documentation
 
-## Deployment
+- `docs/ARCHITECTURE.md`
+- `docs/DEVELOPMENT.md`
+- `docs/CONTRACTS.md`
+- `docs/TESTING.md`
+- `docs/SECURITY.md`
+- `design/DESIGN_SYSTEM.md`
+- `design/COMPONENTS.md`
 
-See `deploy/README.md`. Docker and Coolify instructions are provided with explicit notes about which checks require a local Docker runtime.
+## Scope
 
-## License
-
-See `LICENSE`.
+This is a frontend and shared-library foundation. Authentication, database persistence, API server, SSR, and product-specific business rules are deliberately not claimed as implemented.
