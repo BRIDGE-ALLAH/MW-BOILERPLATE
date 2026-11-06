@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use mw_ui::{MoonBadge, MoonButton, MoonCard, MoonInput, MoonSeparator, MoonSpinner, MoonTextarea};
+use mw_ui::{MoonBadge, MoonButton, MoonCard, MoonCheckbox, MoonInput, MoonSeparator, MoonSpinner, MoonTextarea};
 
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
@@ -141,6 +141,7 @@ fn ButtonPage() -> Element {
 fn InputPage() -> Element {
     let mut value = use_signal(String::new);
     let mut notes = use_signal(String::new);
+    let mut updates_enabled = use_signal(|| false);
     rsx! {
         h1 { "Form controls" }
         p { class: "lead", "Reusable native controls with explicit labels, controlled values, and optional validation messaging." }
@@ -161,6 +162,13 @@ fn InputPage() -> Element {
             oninput: move |event| notes.set(event.value())
         }
         p { "Character count: {notes.chars().count()}" }
+        MoonCheckbox {
+            id: "demo-updates",
+            label: "Enable example updates",
+            checked: updates_enabled(),
+            onchange: move |event| updates_enabled.set(event.checked())
+        }
+        p { "Updates enabled: {updates_enabled}" }
     }
 }
 
